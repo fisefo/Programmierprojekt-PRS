@@ -19,3 +19,4 @@
 #         user_input = input('Proceed to -> "study"ing?')
 
 # todo: learn how pushing works
+# maybe tell theo abt it
