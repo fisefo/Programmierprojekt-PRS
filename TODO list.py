@@ -17,6 +17,3 @@
 #         print('The shortest distance between two points is a straight line. In your case, you are point A, '
 #               'the holidays are point B, and the straight line is studying. No way around it, either.')
 #         user_input = input('Proceed to -> "study"ing?')
-
-# todo: learn how pushing works
-# maybe tell theo abt it
