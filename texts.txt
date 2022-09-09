@@ -1,0 +1,46 @@
+--PROLOGUE--
+A new semester is starting and you are already looking forward to its ending. You have big plans for the holidays, and
+you will not have them spoiled by studying for the exams a second time. Unfortunately for you, that means studying during
+the semester and passing the exams first try. Well, not that this comes as a surprise to you, of course, but it's still
+a bummer. You decide for yourself that you will do as much as necessary to pass, but as little as possible.
+With this mantra, you feel motivated to head right into the work. Let's go!!
+
+
+--READING A BOOK--
+You were never a fast reader, nor do you fancy yourself a particularly avid one. However, these texts offer knowledge
+you would not find on the internet. Well, not as quickly and easily, anyway.
+You earned 1 study point.
+
+
+--WATCHING A VIDEO--
+Videos on this topic are often not of the best production quality, but those especially always seem to offer the best
+advice. Funny how the world works sometimes, isn't it?
+You earned 2 study points.
+
+--WATCHING A VIDEO--
+Oh no! The recommendations won and you find yourself neck-deep in a YouTube rabbit hole. Unfortunately for you, though,
+there is no white rabbit on the other end, only the sinking feeling of lost time and disappointment.
+You lost 1 study point.
+
+
+--ASKING THE TUTOR--
+Asking the tutor is always a good idea. In addition to the solutions, you can also get nifty tips! You get all the
+answers you needed and are able to resume your studying quickly.
+You earned 3 study points.
+
+--ASKING THE TUTOR--
+The tutor seems stumped by your question. She doesn't know. Google doesn't know.
+You conclude that it will probably not come up in the exam then and leave it be.
+You earned 0 study points.
+
+
+--TAKE PRO1 EXAM?--
+You have submitted all the necessary assignments. You have done all the studying. Further studying will not help you
+in this next quest. Will you proceed to this next, crucial step on your way to the holidays? (->"take PRO1 exam")
+Be warned: if you don't take this route now, you will have to take a re-route through the dreaded Moodle-Jungle in order
+to take the exam ("submit PRO1/CLT" -> "take PRO1 exam").
+
+
+--STUDYING--
+Ah, yes. Studying. What you came to college for. Unfortunately, it does not seem to be quite as fun as you imagined
+it would be. Oh well, the only way through is doing it!
