@@ -44,8 +44,9 @@ def study():
             print('You can not use that command here!')
         elif user_input == 'cheat':
             report['PRO1 submitted'] = 4
-            report['CLT submitted'] = 3
-            print('all assignments are now done.')
+            report['CLT submitted'] = 2
+            report['study points'] = 4
+            print(inspect_report())
         else:
             print('..what?')
 
@@ -82,16 +83,15 @@ def submit_clt():
         report['CLT submitted'] += 1
         report['study points'] -= 4
         print('You submitted a CLT assignment.')
-        assignment_input()
-    if report['CLT submitted'] == 3:
+        if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
+            print(game_txt['exam_warning'])
+            assignment_input()
+    elif report['CLT submitted'] == 3:
         print('You dont have to submit any more of these!')
     elif report['study points'] < 4:
         print('You dont have enough study points for this!')
     elif report['CLT submitted'] > report['PRO1 submitted']:
         print('You have to submit one more PRO1 assignment first!')
-    if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
-        print(game_txt['exam_warning'])
-        assignment_input()
 
 
 def submit_pro1():
@@ -101,16 +101,15 @@ def submit_pro1():
         report['PRO1 submitted'] += 1
         report['study points'] -= 3
         print('You submitted a PRO1 assignment.')
-        assignment_input()
+        if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
+            print(game_txt['exam_warning'])
+            assignment_input()
     elif report['PRO1 submitted'] == 4:
         print('You dont have to submit any more of these!')
     elif report['study points'] < 3:
         print('You dont have enough study points for this!')
     elif report['PRO1 submitted'] > report['CLT submitted']:
         print('You have to submit one more CLT assignment first!')
-    if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
-        print(game_txt['exam_warning'])
-        assignment_input()
 
 
 def assignment_input():

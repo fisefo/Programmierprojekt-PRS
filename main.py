@@ -4,9 +4,11 @@
 import sys
 
 from studying import study
+from miscellaneous import prologue
 
 
 def main():
+    prologue()
     study()
     print('you will now take the Pro1 exam.')
 

@@ -26,7 +26,11 @@ take_exam = {
 
 def inspect_report():
     """Display the report of the player on screen."""
-    print(report)  # TODO make this prettier
+    print('Study points:......... ' + str(report['study points']))  # TODO make this prettier
+    print('CLT submitted:........ ' + str(report['CLT submitted']))
+    print('PRO1 submitted:....... ' + str(report['PRO1 submitted']))
+    print('PRO1 exam:............ ' + str(report['PRO1 exam']))
+    print('CLT exam:............. ' + str(report['CLT exam']))
 
 
 def text_out(scene):
@@ -50,3 +54,13 @@ with open('texts.txt', 'r') as f:
         'tutor_l': text_out(raw[30:34]),
         'exam_warning': text_out(raw[36:41])
     }
+
+
+def prologue():
+    """Show the Prologue to the game and make sure the player proceeds to the study-state"""
+    print(game_txt['prologue'])
+    user_input = input('Proceed to -> "study"ing?\n')
+    while user_input != 'study':
+        print('The shortest distance between two points is a straight line. In your case, you are point A, '
+              'the holidays are point B, and the straight line is studying. No way around it, either.')
+        user_input = input('Proceed to -> "study"ing?')
