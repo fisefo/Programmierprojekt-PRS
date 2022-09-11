@@ -44,3 +44,8 @@ to take the exam ("submit PRO1/CLT" -> "take PRO1 exam").
 --STUDYING--
 Ah, yes. Studying. What you came to college for. Unfortunately, it does not seem to be quite as fun as you imagined
 it would be. Oh well, the only way through is doing it!
+
+
+--THE PRO1 EXAM--
+This is it, the first exam. The first of two obstacles that are still between you and the holidays. You want to pass.
+You NEED to pass. No pressure though.

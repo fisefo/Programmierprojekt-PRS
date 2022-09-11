@@ -3,11 +3,11 @@
 # this file contains the "studying"- and "assignments"-part of the game and all related functions.
 
 import sys
-from miscellaneous import report
-from miscellaneous import valid_input
-from miscellaneous import take_exam
-from miscellaneous import game_txt
-from miscellaneous import inspect_report
+from misc import report
+from misc import valid_input
+from misc import take_exam
+from misc import game_txt
+from misc import inspect_report
 import random
 
 

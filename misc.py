@@ -1,6 +1,6 @@
 # Elisa Lübbers
 # 16.08.2022
-# this file holds functions and variables that are not specific to a certain part of the game loop
+# this file holds miscellaneous functions and variables that are not specific to a specific part of the game loop
 
 valid_input = {
         'all': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report',

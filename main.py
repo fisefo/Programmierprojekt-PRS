@@ -4,7 +4,7 @@
 import sys
 
 from studying import study
-from miscellaneous import prologue
+from misc import prologue
 
 
 def main():
