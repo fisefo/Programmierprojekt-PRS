@@ -9,15 +9,15 @@ that are not specific to any sole part of the game, as well as prologue and epil
 import sys
 
 valid_input = {
-        'all': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report',
-                'take pro1 exam', 'study'],
-        'starting out': ['study', 'inspect report'],
-        'studying': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report'],
-        'assignments': ['study', 'submit clt', 'submit pro1', 'take pro1 exam', 'inspect report'],
-        'pro1 exam': ['take clt exam', 'inspect report', '#+!?'],
-        'clt exam': ['inspect report'],
-        'ending': ['play again', 'inspect report']
-    }
+    'all': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report',
+            'take pro1 exam', 'study'],
+    'starting out': ['study', 'inspect report'],
+    'studying': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report'],
+    'assignments': ['study', 'submit clt', 'submit pro1', 'take pro1 exam', 'inspect report'],
+    'pro1 exam': ['take clt exam', 'inspect report', '#+!?'],
+    'clt exam': ['inspect report'],
+    'ending': ['play again', 'inspect report']
+}
 report = {
     'study points': 0,
     'CLT submitted': 0,
@@ -76,4 +76,4 @@ def prologue():
             sys.exit()
         else:
             print('The shortest distance between two points is a straight line. In your case, you are point A, '
-              'the holidays are point B, and the straight line is studying. No way around it, either.')
+                  'the holidays are point B, and the straight line is studying. No way around it, either.')
