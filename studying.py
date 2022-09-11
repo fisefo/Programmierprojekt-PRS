@@ -1,6 +1,12 @@
-# Elisa Lübbers
-# 16.08.2022
-# this file contains the "studying"- and "assignments"-part of the game and all related functions.
+"""
+Created on Tue Aug 16 2022
+
+This file contains the 'studying'- and 'assignments'-part of
+the game and all related functions.
+
+@author: Elisa Lübbers
+"""
+
 
 import sys
 from misc import report
@@ -127,7 +133,6 @@ def assignment_input():
                 continue
             elif user_input == 'study':
                 study()
-                # break  # fixme why doesnt break work?
             elif user_input == 'inspect report':
                 inspect_report()
                 continue

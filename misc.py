@@ -1,6 +1,12 @@
-# Elisa Lübbers
-# 16.08.2022
-# this file holds miscellaneous functions and variables that are not specific to a specific part of the game loop
+"""
+Created on Tue Aug 16 2022
+
+Auxiliary script, contains miscellaneous functions and variables
+that are not specific to any sole part of the game, as well as prologue and epilogue.
+
+@author: Elisa Lübbers
+"""
+import sys
 
 valid_input = {
         'all': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report',
@@ -59,8 +65,15 @@ with open('texts.txt', 'r') as f:
 def prologue():
     """Show the Prologue to the game and make sure the player proceeds to the study-state"""
     print(game_txt['prologue'])
-    user_input = input('Proceed to -> "study"ing?\n')
-    while user_input != 'study':
-        print('The shortest distance between two points is a straight line. In your case, you are point A, '
+    while True:
+        user_input = input('Proceed to -> "study"ing?\n')
+        if user_input == 'study':
+            break
+        elif user_input == 'inspect report':
+            inspect_report()
+            continue
+        elif user_input == 'exit':
+            sys.exit()
+        else:
+            print('The shortest distance between two points is a straight line. In your case, you are point A, '
               'the holidays are point B, and the straight line is studying. No way around it, either.')
-        user_input = input('Proceed to -> "study"ing?')
