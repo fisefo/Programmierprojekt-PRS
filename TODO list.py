@@ -1,4 +1,5 @@
 
+# big TODO update the first skript comments
 
 # big TODO exam loop
 
@@ -7,4 +8,6 @@
 # todo epilogue
 
 # exam hype up and post-texts
+
+
 
