@@ -8,6 +8,7 @@ that are not specific to any sole part of the game, as well as prologue and epil
 """
 import sys
 
+
 valid_input = {
     'all': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report',
             'take pro1 exam', 'study'],

@@ -10,8 +10,6 @@ to show the structure of the game and avoid clutter.
 
 @author: Elisa Lübbers
 """
-
-
 from studying import study
 from misc import prologue
 
