@@ -91,7 +91,7 @@ def submit_clt():
         print('You submitted a CLT assignment.')
         if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
             print(game_txt['exam_warning'])
-            assignment_input()
+        assignment_input()
     elif report['CLT submitted'] == 3:
         print('You dont have to submit any more of these!')
     elif report['study points'] < 4:
@@ -109,7 +109,7 @@ def submit_pro1():
         print('You submitted a PRO1 assignment.')
         if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
             print(game_txt['exam_warning'])
-            assignment_input()
+        assignment_input()
     elif report['PRO1 submitted'] == 4:
         print('You dont have to submit any more of these!')
     elif report['study points'] < 3:
@@ -132,7 +132,8 @@ def assignment_input():
                 submit_pro1()
                 continue
             elif user_input == 'study':
-                study()
+                print('Alright, back to studying!')
+                break
             elif user_input == 'inspect report':
                 inspect_report()
                 continue
