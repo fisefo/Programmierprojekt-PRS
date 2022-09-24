@@ -26,6 +26,7 @@ def pro1_exam():
     tries = 3
     hints = 3
 
+
 def prep_sentence():
     """
     Fetch a sentence from Alice in Wonderland that is 10 tokens long. Process it for display for the player.
@@ -51,10 +52,11 @@ def get_length(word_list: list):
 
     Returns
     -------
-    hint1: list
+    word_lengths: list
         length of each word
     """
-    return hint1
+    word_lengths = [len(x) for x in word_list]
+    return word_lengths
 # fixme: make it return a value instead, can then be called in pro1
 
 
@@ -69,10 +71,14 @@ def get_pos_tag(word_list: list):
 
     Return
     --------
-    hint2: list
+    pos_list: list
         one POS-tag per word in the sentence
     """
-    return hint2
+    word_string = ' '.join(word_list)
+    sent_tokenized = nltk.word_tokenize(word_string)
+    sent_tagged = nltk.pos_tag(sent_tokenized, tagset='universal')
+    pos_list = [x[1] for x in sent_tagged]
+    return pos_list
 
 
 def get_synonym(word_list: list):
@@ -87,7 +93,9 @@ def get_synonym(word_list: list):
 
     Return
     ------
-    hint3: list
+    synonym_list: list
         all the synonyms
     """
-    return hint3
+    synonym_list = []
+
+    return synonym_list
