@@ -18,7 +18,7 @@ from misc import prologue
 def main():
     # prologue()
     # study()
-    # print('you will now take the Pro1 exam.')
+    print('you will now take the Pro1 exam.')
     pro1_exam()
 
 

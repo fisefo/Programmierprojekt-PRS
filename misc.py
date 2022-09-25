@@ -33,7 +33,7 @@ take_exam = {
 
 def inspect_report():
     """Display the report of the player on screen."""
-    print('Study points:......... ' + str(report['study points']))  # TODO make this prettier
+    print('Study points:......... ' + str(report['study points']))
     print('CLT submitted:........ ' + str(report['CLT submitted']))
     print('PRO1 submitted:....... ' + str(report['PRO1 submitted']))
     print('PRO1 exam:............ ' + str(report['PRO1 exam']))
@@ -67,7 +67,7 @@ def prologue():
     """Show the Prologue to the game and make sure the player proceeds to the study-state"""
     print(game_txt['prologue'])
     while True:
-        user_input = input('Proceed to -> "study"ing?\n')
+        user_input = input('Proceed to -> "study"ing?\n').lower()
         if user_input == 'study':
             break
         elif user_input == 'inspect report':
@@ -76,5 +76,5 @@ def prologue():
         elif user_input == 'exit':
             sys.exit()
         else:
-            print('The shortest distance between two points is a straight line. In your case, you are point A, '
+            print('The shortest distance between two points is a straight line. In your case, you are point A,\n '
                   'the holidays are point B, and the straight line is studying. No way around it, either.')

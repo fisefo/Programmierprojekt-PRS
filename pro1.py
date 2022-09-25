@@ -14,6 +14,8 @@ from nltk.corpus import wordnet
 from typing import Any
 from misc import valid_input
 from misc import inspect_report
+from misc import report
+from grades import convert_points
 
 # FIXME timer!!
 
@@ -60,11 +62,11 @@ def pro1_exam():
     current_index = 0
 
     while True:
-        user_input = input('[{score} points] What is the next word? {sentence}'
-                           .format(score, final_sentence)).lower() # fixme: ignore '!!!' ?
+        user_input = input('[{} points] What is the next word? {}\n'
+                           .format(score, final_sentence)).lower() # fixme: ignore '!!!'
         if user_input == 'exit':
             sys.exit()
-        elif user_input in valid_input:
+        elif user_input in valid_input['pro1 exam']:
             if user_input == 'inspect report':
                 inspect_report()
                 continue
@@ -85,10 +87,11 @@ def pro1_exam():
                     print('You have used all hints for this word!')
                     continue
             elif user_input == '#+!?':
-                pass  # todo: end exam with current stats -> just break the loop?
+                break
+
         elif user_input == words_to_guess[current_index]:
-            print('Correct!')  # todo: check whether the player has won, act accordingly; up the index, up the score, update final_sentence
-            current_index += 1
+            print('Correct!')
+            final_sentence = final_sentence.replace('–', words_to_guess[current_index], 1)
             if hints == 3:
                 score += 10
             elif hints == 2:
@@ -97,8 +100,31 @@ def pro1_exam():
                 score += 6
             elif hints == 0:
                 score += 4
+            if words_to_guess[current_index] == words_to_guess[-1]:
+                break
+            current_index += 1
+            hints = 3
+            guesses = 3
+            continue
+
         else:
-            pass  # todo: wrong word entry; check whether it was the last word, act accordingly 
+            print('Wrong!')
+            if guesses > 1:
+                guesses -= 1
+                continue
+            else:
+                final_sentence = final_sentence.replace('–', words_to_guess[current_index], 1)
+                score -= 5
+                if words_to_guess[current_index] == words_to_guess[-1]:
+                    break
+                current_index += 1
+                hints = 3
+                guesses = 3
+                continue
+    print('The whole sentence is: {}'.format(final_sentence))
+    report['PRO1 exam'] = convert_points(score, len(words_to_guess))
+    print('You finished the exam, your grade is: {}'.format(report['PRO1 exam']))
+
         # todo: end of exam, going to next exam, epilogue
 
 
