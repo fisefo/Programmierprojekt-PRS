@@ -11,6 +11,7 @@ import nltk
 from nltk.corpus import wordnet
 from typing import Any
 from misc import valid_input
+from misc import report
 
 # FIXME timer!!
 
