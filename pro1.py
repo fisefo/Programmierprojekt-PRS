@@ -37,9 +37,8 @@ def pro1_exam():
     # take a random 10-tokens-sentence; then save it also a string
     sentence_raw: list[Any] = random.choice(ten_token_sents)
     sent_string: str = ' '.join(sentence_raw)
-    # extract only the words from the string into a list; then save it also as a string
+    # extract only the words from the string into a list
     only_words_list: list[Any] = re.findall(r'\w+', sent_string)
-    only_words_string: str = ' '.join(only_words_list[2:])
     # sub every word with '-'
     final_sentence: str = re.sub(r'\w+', '–', sent_string)
     # 'uncover' the first two words of the sentence to finalize it
@@ -50,9 +49,7 @@ def pro1_exam():
     words_to_guess = only_words_list[2:]
     hint1 = [len(x) for x in words_to_guess]
 
-    sent_tokenized = nltk.word_tokenize(only_words_string)
-    sent_tagged = nltk.pos_tag(sent_tokenized, tagset='universal')
-    hint2 = [x[1] for x in sent_tagged]
+    hint2 = [x[1] for x in nltk.pos_tag(words_to_guess)]
 
     hint3 = [get_synonym(x) for x in words_to_guess]
 
@@ -89,7 +86,7 @@ def pro1_exam():
             elif user_input == '#+!?':
                 break
 
-        elif user_input == words_to_guess[current_index]:
+        elif user_input == words_to_guess[current_index].lower():
             print('Correct!')
             final_sentence = final_sentence.replace('–', words_to_guess[current_index], 1)
             if hints == 3:
