@@ -7,91 +7,54 @@ All necessary functions for the PRO1-exam part of the game.  # todo make this mo
 """
 import random
 import re
-from typing import Any
 import nltk
 from nltk.corpus import wordnet
+from typing import Any
+from misc import valid_input
+
+# FIXME timer!!
 
 
 def pro1_exam():
     """
-    Handle player input and call functions accordingly for PRO1-exam part of the game.
+    Create and handle all variables and input necessary to play the Pro1-exam part of the game.
 
-    # todo more info abt the loop, returns (for grades-function)
+    Part one: Fetch and prepare a sentence from Alice in Wonderland for the guessing game;
+        fetch and compute all info necessary for the hints and the score.
+
+    Part two: Handle player input according to the games' rules.
     """
-    points = 0
-    tries = 3
-    hints = 3
-
-
-def prep_sentence():
-    """
-    Fetch a sentence from Alice in Wonderland that is 10 tokens long. Process it for display for the player.
-
-    Returns
-    ------
-    word_list: list
-        all the words in the sentence
-    final_sentence: str
-        the sentence to be shown to the player
-    """  # fixme this only shows the first param!
+    # download the Alice in Wonderland text from the nltk corpus
     alice = nltk.corpus.gutenberg.sents('carroll-alice.txt')
     # take only sentences that are 10 tokens long and keep them in a list
     ten_token_sents = [x for x in alice if len(x) == 10]
 
-    # take a random 10-tokens-sentence and turn it into a string
+    # take a random 10-tokens-sentence; then save it also a string
     sentence_raw: list[Any] = random.choice(ten_token_sents)
     sent_string: str = ' '.join(sentence_raw)
-    # extract only the words from the string into a list
+    # extract only the words from the string into a list; then save it also as a string
     only_words_list: list[Any] = re.findall(r'\w+', sent_string)
+    only_words_string: str = ' '.join(only_words_list)
     # sub every word with '-'
     final_sentence: str = re.sub(r'\w+', '–', sent_string)
-
-    # 'uncover' the first two words of the sentence
+    # 'uncover' the first two words of the sentence to finalize it
     for i in range(2):
         final_sentence = final_sentence.replace('–', only_words_list[i], 1)
 
-    return [only_words_list, final_sentence]
+    # compute the hints for the player
+    hint1 = [len(x) for x in only_words_list]
 
-
-def get_length(list_of_words: list):
-    """
-    Compute the length of every word in the list and save it to a new list
-
-    Parameters
-    ----------
-    list_of_words: list
-        all words from the sentence (final_sentence)
-
-    Returns
-    -------
-    word_lengths: list
-        length of each word
-    """
-    word_lengths = [len(x) for x in list_of_words]
-    return word_lengths
-# fixme: make it return a value instead, can then be called in pro1
-
-
-def get_pos_tag(list_of_words: list):
-    """
-    Fetch the POS-tags for all words in the given sentence #todo: do we look up all words or leave the first two out?
-
-    Parameters
-    ---------
-    list_of_words: list
-        all the words to fetch the POS-tag of
-
-    Return
-    --------
-    pos_list: list
-        one POS-tag per word in the sentence
-    """
-    word_string = ' '.join(list_of_words)
-    sent_tokenized = nltk.word_tokenize(word_string)
+    sent_tokenized = nltk.word_tokenize(only_words_string)
     sent_tagged = nltk.pos_tag(sent_tokenized, tagset='universal')
-    pos_list = [x[1] for x in sent_tagged]
-    return pos_list
+    hint2 = [x[1] for x in sent_tagged]
 
+    hint3 = [get_synonym(x) for x in only_words_list]
+
+    print(sent_string)
+    print(final_sentence)
+    print(hint1)
+    print(hint2)
+    print(hint3)
 
 def get_synonym(word: str):
     """

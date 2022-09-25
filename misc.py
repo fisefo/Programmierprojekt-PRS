@@ -15,7 +15,7 @@ valid_input = {
     'starting out': ['study', 'inspect report'],
     'studying': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report'],
     'assignments': ['study', 'submit clt', 'submit pro1', 'take pro1 exam', 'inspect report'],
-    'pro1 exam': ['take clt exam', 'inspect report', '#+!?'],
+    'pro1 exam': ['take clt exam', 'inspect report', '#+!?', 'help!!!'],
     'clt exam': ['inspect report'],
     'ending': ['play again', 'inspect report']
 }

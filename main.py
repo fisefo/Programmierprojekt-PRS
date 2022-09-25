@@ -11,13 +11,15 @@ to show the structure of the game and avoid clutter.
 @author: Elisa Lübbers
 """
 from studying import study
+from pro1 import pro1_exam
 from misc import prologue
 
 
 def main():
-    prologue()
-    study()
-    print('you will now take the Pro1 exam.')
+    # prologue()
+    # study()
+    # print('you will now take the Pro1 exam.')
+    pro1_exam()
 
 
 if __name__ == '__main__':
