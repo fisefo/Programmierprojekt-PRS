@@ -7,11 +7,13 @@ All necessary functions for the PRO1-exam part of the game.  # todo make this mo
 """
 import random
 import re
+import sys
+
 import nltk
 from nltk.corpus import wordnet
 from typing import Any
 from misc import valid_input
-from misc import report
+from misc import inspect_report
 
 # FIXME timer!!
 
@@ -35,7 +37,7 @@ def pro1_exam():
     sent_string: str = ' '.join(sentence_raw)
     # extract only the words from the string into a list; then save it also as a string
     only_words_list: list[Any] = re.findall(r'\w+', sent_string)
-    only_words_string: str = ' '.join(only_words_list)
+    only_words_string: str = ' '.join(only_words_list[2:])
     # sub every word with '-'
     final_sentence: str = re.sub(r'\w+', '–', sent_string)
     # 'uncover' the first two words of the sentence to finalize it
@@ -43,19 +45,62 @@ def pro1_exam():
         final_sentence = final_sentence.replace('–', only_words_list[i], 1)
 
     # compute the hints for the player
-    hint1 = [len(x) for x in only_words_list]
+    words_to_guess = only_words_list[2:]
+    hint1 = [len(x) for x in words_to_guess]
 
     sent_tokenized = nltk.word_tokenize(only_words_string)
     sent_tagged = nltk.pos_tag(sent_tokenized, tagset='universal')
     hint2 = [x[1] for x in sent_tagged]
 
-    hint3 = [get_synonym(x) for x in only_words_list]
+    hint3 = [get_synonym(x) for x in words_to_guess]
 
-    print(sent_string)
-    print(final_sentence)
-    print(hint1)
-    print(hint2)
-    print(hint3)
+    score = 0
+    guesses = 3
+    hints = 3
+    current_index = 0
+
+    while True:
+        user_input = input('[{score} points] What is the next word? {sentence}'
+                           .format(score, final_sentence)).lower() # fixme: ignore '!!!' ?
+        if user_input == 'exit':
+            sys.exit()
+        elif user_input in valid_input:
+            if user_input == 'inspect report':
+                inspect_report()
+                continue
+            elif user_input == 'help!!!':
+                if hints == 3:
+                    print('The next word is {} charakter(s) long.'.format(hint1[current_index]))
+                    hints -= 1
+                    continue
+                elif hints == 2:
+                    print('The next word is a(n) {}'.format(hint2[current_index]))
+                    hints -= 1
+                    continue
+                elif hints == 1:
+                    print('Here is a synonym for the next word: {}'.format(hint3[current_index]))
+                    hints -= 1
+                    continue
+                elif hints == 0:
+                    print('You have used all hints for this word!')
+                    continue
+            elif user_input == '#+!?':
+                pass  # todo: end exam with current stats -> just break the loop?
+        elif user_input == words_to_guess[current_index]:
+            print('Correct!')  # todo: check whether the player has won, act accordingly; up the index, up the score, update final_sentence
+            current_index += 1
+            if hints == 3:
+                score += 10
+            elif hints == 2:
+                score += 8
+            elif hints == 1:
+                score += 6
+            elif hints == 0:
+                score += 4
+        else:
+            pass  # todo: wrong word entry; check whether it was the last word, act accordingly 
+        # todo: end of exam, going to next exam, epilogue
+
 
 def get_synonym(word: str):
     """
