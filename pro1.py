@@ -59,13 +59,13 @@ def pro1_exam():
     hints = 3
     current_index = 0
     time_start = time.time()
-    print(time_start)
+
     while True:
         user_input = input('[{} points] What is the next word? {}\n'
                            .format(score, final_sentence)).lower()
         time_end = time.time()
         delta_t = time_end - time_start
-        if delta_t > 180:
+        if delta_t > 120:
             print('Oh no, you exceeded the time limit!')
             break
         if user_input == 'exit':
@@ -74,6 +74,8 @@ def pro1_exam():
             if user_input == 'inspect report':
                 inspect_report()
                 continue
+            elif user_input == '#+!?':
+                break
             elif user_input == 'help!!!':
                 if hints == 3:
                     print('The next word is {} charakter(s) long.'.format(hint1[current_index]))
@@ -125,9 +127,8 @@ def pro1_exam():
                 hints = 3
                 guesses = 3
                 continue
-    print('[{}] points'.format(score))
     print('[{} points] The whole sentence is: {}'.format(score, sent_string))
-    if delta_t > 180:
+    if delta_t > 120:
         report['PRO1 exam'] = 5.0
     else:
         report['PRO1 exam'] = convert_points(score, len(words_to_guess))
@@ -169,4 +170,3 @@ def get_synonym(word: str):
                 synonym = wordnet.synsets(word)[1].lemma_names()[1]
         synonym = synonym.replace('_', ' ')
         return synonym
-    
