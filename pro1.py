@@ -1,7 +1,10 @@
 """
 Created on Sun Sep 11 2022
 
-All necessary functions for the PRO1-exam part of the game.  # todo make this more helpful?
+All necessary functions and variables for the PRO1-exam part of the PRS 2022 final project.
+This script processes a sentence from Lewis Carrol's Alice in Wonderland for the player to
+guess the words, given the first two, in a hangman-like manner. The player is then given a grade
+representing their success in guessing the words; they also have a two-minute time constraint.
 
 @author: Elisa Lübbers
 """
@@ -17,8 +20,6 @@ from misc import valid_input
 from misc import inspect_report
 from misc import report
 from grades import convert_points
-
-# FIXME timer!!
 
 
 def pro1_exam():

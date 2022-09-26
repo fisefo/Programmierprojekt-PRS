@@ -1,7 +1,7 @@
 """
 Created on Tue Aug 16 2022
 
-Auxiliary script, contains miscellaneous functions and variables
+Auxiliary script for the PRS 2022 final project. Contains miscellaneous functions and variables
 that are not specific to any sole part of the game, as well as prologue and epilogue.
 
 @author: Elisa Lübbers

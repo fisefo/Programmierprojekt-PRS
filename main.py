@@ -1,12 +1,9 @@
-# Elisa Lübbers
-# 16.08.2022
-# This file is where all main functions necessary for the game are called to avoid clutter.
 """
 Created on Tue Aug 16 2022
 
 This file contains the function-calls for the main stages
-of the game (prologue, studying, PRO1 exam, CLT exam, epilogue)
-to show the structure of the game and avoid clutter.
+of the PRS 2022 final project to show the structure of the game and avoid clutter.
+The main stages are: Beginning the semester (Prologue), Studying, Pro1 exam, CLT exam, Final state (Epilogue)
 
 @author: Elisa Lübbers
 """

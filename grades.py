@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3  # FIXME does every script need this?
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jul 21 13:05:22 2022
