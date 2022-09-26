@@ -8,6 +8,7 @@ All necessary functions for the PRO1-exam part of the game.  # todo make this mo
 import random
 import re
 import sys
+import time
 
 import nltk
 from nltk.corpus import wordnet
@@ -57,10 +58,16 @@ def pro1_exam():
     guesses = 3
     hints = 3
     current_index = 0
-
+    time_start = time.time()
+    print(time_start)
     while True:
         user_input = input('[{} points] What is the next word? {}\n'
-                           .format(score, final_sentence)).lower() # fixme: ignore '!!!'
+                           .format(score, final_sentence)).lower()
+        time_end = time.time()
+        delta_t = time_end - time_start
+        if delta_t > 180:
+            print('Oh no, you exceeded the time limit!')
+            break
         if user_input == 'exit':
             sys.exit()
         elif user_input in valid_input['pro1 exam']:
@@ -118,11 +125,13 @@ def pro1_exam():
                 hints = 3
                 guesses = 3
                 continue
-    print('The whole sentence is: {}'.format(final_sentence))
-    report['PRO1 exam'] = convert_points(score, len(words_to_guess))
+    print('[{}] points'.format(score))
+    print('[{} points] The whole sentence is: {}'.format(score, sent_string))
+    if delta_t > 180:
+        report['PRO1 exam'] = 5.0
+    else:
+        report['PRO1 exam'] = convert_points(score, len(words_to_guess))
     print('You finished the exam, your grade is: {}'.format(report['PRO1 exam']))
-
-        # todo: end of exam, going to next exam, epilogue
 
 
 def get_synonym(word: str):
@@ -160,3 +169,4 @@ def get_synonym(word: str):
                 synonym = wordnet.synsets(word)[1].lemma_names()[1]
         synonym = synonym.replace('_', ' ')
         return synonym
+    
