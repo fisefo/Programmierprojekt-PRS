@@ -49,3 +49,41 @@ it would be. Oh well, the only way through is doing it!
 --THE PRO1 EXAM--
 This is it, the first exam. The first of two obstacles that are still between you and the holidays. You want to pass.
 You NEED to pass. No pressure though.
+Your task is to guess the words of this sentence, given the first two.
+You have two minutes to guess all the words.
+
+
+--THE CLT EXAM--
+This is it, the last step. After this, you can enjoy the holidays!
+Your task is to enter a lattice-codeword.
+
+
+--EPILOGUE--
+Thank god, you did it!
+You hussled your way through the semester and passed the exams. Phew!
+Now, there is nothing standing between you and your much-deserved holidays!
+
+-> inspect report
+-> play again
+-> exit
+
+
+--EPILOGUE--
+God dammit, these awful exams! You just wanted to pass and enjoy the holidays,
+but noooo. Even though you studied so hard, you couldn't get a passing grade.
+"What a joke", you think, "what did I even study for if it did me no good??
+That's it, I'm changing majors."
+
+-> inspect report
+-> play again
+-> exit
+
+
+--PRO1 EXERCISE--
+Phew! These exercises take a while, but at least you're done with this one now!
+If it was easy, everyone could do it! Now to submit it on Moodle...
+
+
+--CLT EXERCISE--
+Wow, that was time-consuming! The Pro1 exercises take way less time..
+Oh well, it' done now, at least. Now to submit it on Moodle...

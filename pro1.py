@@ -20,6 +20,7 @@ from misc import valid_input
 from misc import inspect_report
 from misc import report
 from grades import convert_points
+from misc import game_txt
 
 
 def pro1_exam():
@@ -31,6 +32,7 @@ def pro1_exam():
 
     Part two: Handle player input according to the games' rules.
     """
+    print(game_txt['pro1_exam'])
     # download the Alice in Wonderland text from the nltk corpus
     alice = nltk.corpus.gutenberg.sents('carroll-alice.txt')
     # take only sentences that are 10 tokens long and keep them in a list

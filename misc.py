@@ -47,7 +47,7 @@ def text_out(scene):
         output += i
     return output
 
-
+# FIXME: write better docstrings!
 with open('texts.txt', 'r') as f:
     """Read the scene descriptions from the texts.txt file and store them as single strings in a dictionary."""
     raw = f.readlines()
@@ -59,7 +59,13 @@ with open('texts.txt', 'r') as f:
         'video_l': text_out(raw[19:23]),
         'tutor_w': text_out(raw[25:29]),
         'tutor_l': text_out(raw[30:34]),
-        'exam_warning': text_out(raw[36:41])
+        'exam_warning': text_out(raw[36:41]),
+        'pro1_exam': text_out(raw[48:53]),  
+        'clt_exam': text_out(raw[55:58]),
+        'epilogue_w': text_out(raw[60:68]),
+        'epilogue_l': text_out(raw[70:79]),
+        'pro1_exercise': text_out(raw[81:84]),
+        'clt_exercise': text_out(raw[86:89])
     }
 
 

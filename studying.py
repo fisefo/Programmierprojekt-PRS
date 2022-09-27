@@ -80,7 +80,7 @@ def ask_tutor():
         print(game_txt['tutor_w'])
     else:
         print(game_txt['tutor_l'])
-
+# fixme: better docstrings!
 
 def submit_clt():
     """Update report and enter assignment-loop if submission-conditions are met. Else throw specific in-game error."""
@@ -91,6 +91,7 @@ def submit_clt():
         print('You submitted a CLT assignment.')
         if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
             print(game_txt['exam_warning'])
+        print(game_txt['clt_exercise'])
         assignment_input()
     elif report['CLT submitted'] == 3:
         print('You dont have to submit any more of these!')
@@ -109,6 +110,7 @@ def submit_pro1():
         print('You submitted a PRO1 assignment.')
         if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
             print(game_txt['exam_warning'])
+        print(game_txt['pro1_exercise'])
         assignment_input()
     elif report['PRO1 submitted'] == 4:
         print('You dont have to submit any more of these!')
@@ -132,7 +134,7 @@ def assignment_input():
                 submit_pro1()
                 continue
             elif user_input == 'study':
-                print('Alright, back to studying!')
+                print(game_txt['study'])
                 break
             elif user_input == 'inspect report':
                 inspect_report()

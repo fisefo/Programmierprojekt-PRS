@@ -11,3 +11,4 @@ grade on a pass or fail basis.
 
 from misc import valid_input
 from misc import report
+from misc import game_txt
