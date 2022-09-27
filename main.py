@@ -9,13 +9,15 @@ The main stages are: Beginning the semester (Prologue), Studying, Pro1 exam, CLT
 """
 from studying import study
 from pro1 import pro1_exam
+from clt import clt_exam
 from misc import prologue
 
 
 def main():
-    prologue()
-    study()
-    pro1_exam()
+    # prologue()
+    # study()
+    # pro1_exam()
+    clt_exam()
 
 
 if __name__ == '__main__':
