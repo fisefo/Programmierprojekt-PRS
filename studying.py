@@ -88,10 +88,9 @@ def submit_clt():
             'study points'] >= 4:
         report['CLT submitted'] += 1
         report['study points'] -= 4
-        print('You submitted a CLT assignment.')
+        print(game_txt['clt_exercise'])
         if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
             print(game_txt['exam_warning'])
-        print(game_txt['clt_exercise'])
         assignment_input()
     elif report['CLT submitted'] == 3:
         print('You dont have to submit any more of these!')
@@ -107,10 +106,9 @@ def submit_pro1():
             'study points'] >= 3:
         report['PRO1 submitted'] += 1
         report['study points'] -= 3
-        print('You submitted a PRO1 assignment.')
+        print(game_txt['pro1_exercise'])
         if report['CLT submitted'] == 3 and report['PRO1 submitted'] == 4:
             print(game_txt['exam_warning'])
-        print(game_txt['pro1_exercise'])
         assignment_input()
     elif report['PRO1 submitted'] == 4:
         print('You dont have to submit any more of these!')

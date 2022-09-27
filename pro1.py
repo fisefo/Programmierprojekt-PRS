@@ -61,6 +61,7 @@ def pro1_exam():
     guesses = 3
     hints = 3
     current_index = 0
+    input('Press Enter to continue.')
     time_start = time.time()
 
     while True:

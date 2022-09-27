@@ -50,7 +50,7 @@ it would be. Oh well, the only way through is doing it!
 This is it, the first exam. The first of two obstacles that are still between you and the holidays. You want to pass.
 You NEED to pass. No pressure though.
 Your task is to guess the words of this sentence, given the first two.
-You have two minutes to guess all the words.
+You have two minutes to guess all the words. Start when you're ready.
 
 
 --THE CLT EXAM--
@@ -86,4 +86,4 @@ If it was easy, everyone could do it! Now to submit it on Moodle...
 
 --CLT EXERCISE--
 Wow, that was time-consuming! The Pro1 exercises take way less time..
-Oh well, it' done now, at least. Now to submit it on Moodle...
+Oh well, it's done now, at least. Now to submit it on Moodle...
