@@ -58,17 +58,17 @@ This is it, the last step. After this, you can enjoy the holidays!
 Your task is to enter a lattice-codeword.
 
 
---EPILOGUE--
+--HOLIDAYS!!--
 Thank god, you did it!
 You hussled your way through the semester and passed the exams. Phew!
 Now, there is nothing standing between you and your much-deserved holidays!
 
 -> inspect report
 -> play again
--> exit
+-> exit (and go on holidays!!)
 
 
---EPILOGUE--
+--RESIT EXAMS--
 God dammit, these awful exams! You just wanted to pass and enjoy the holidays,
 but noooo. Even though you studied so hard, you couldn't get a passing grade.
 "What a joke", you think, "what did I even study for if it did me no good??

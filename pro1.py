@@ -116,7 +116,6 @@ def pro1_exam():
             hints = 3
             guesses = 3
             continue
-
         else:
             print('Wrong!')
             if guesses > 1:
@@ -137,6 +136,24 @@ def pro1_exam():
     else:
         report['PRO1 exam'] = convert_points(score, len(words_to_guess))
     print('You finished the exam, your grade is: {}'.format(report['PRO1 exam']))
+    while True:
+        if report['PRO1 exam'] == 5.0:
+            break
+        user_input = input('Proceed and -> "take CLT exam"?\n')
+        if user_input == 'exit':
+            sys.exit()
+        elif user_input in valid_input['pro1 exam']:
+            if user_input == 'take clt exam':
+                break
+            elif user_input == 'inspect report':
+                inspect_report()
+                continue
+        elif user_input in valid_input['all']:
+            print('You can\'t do that here!')
+            continue
+        else:
+            print('..what?')
+            continue
 
 
 def get_synonym(word: str):

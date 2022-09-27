@@ -2,7 +2,7 @@
 Created on Tue Aug 16 2022
 
 Auxiliary script for the PRS 2022 final project. Contains miscellaneous functions and variables
-that are not specific to any sole part of the game, as well as prologue and epilogue.
+that are not specific to any sole part of the game, as well as prologue and epilogue functions.
 
 @author: Elisa Lübbers
 """
@@ -11,12 +11,12 @@ import sys
 
 valid_input = {
     'all': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report',
-            'take pro1 exam', 'study'],
-    'starting out': ['study', 'inspect report'],
+            'take pro1 exam', 'study', 'go on holidays', 'play again'],
+    'starting out': ['study', 'inspect report', 'go on holidays'],
     'studying': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report'],
     'assignments': ['study', 'submit clt', 'submit pro1', 'take pro1 exam', 'inspect report'],
     'pro1 exam': ['take clt exam', 'inspect report', '#+!?', 'help!!!'],
-    'ending': ['play again', 'inspect report']
+    'epilogue': ['play again', 'inspect report', 'exit']
 }
 report = {
     'study points': 0,
@@ -46,7 +46,7 @@ def text_out(scene):
         output += i
     return output
 
-# FIXME: write better docstrings!
+
 with open('texts.txt', 'r') as f:
     """Read the scene descriptions from the texts.txt file and store them as single strings in a dictionary."""
     raw = f.readlines()
@@ -73,13 +73,36 @@ def prologue():
     print(game_txt['prologue'])
     while True:
         user_input = input('Proceed to -> "study"ing?\n').lower()
-        if user_input == 'study':
+        if user_input == 'exit':
+            sys.exit()
+        elif user_input == 'study':
             break
         elif user_input == 'inspect report':
             inspect_report()
             continue
-        elif user_input == 'exit':
-            sys.exit()
+        elif user_input == 'go on holidays':
+            print('No way, you have to pass the exams first!')
         else:
-            print('The shortest distance between two points is a straight line. In your case, you are point A,\n '
-                  'the holidays are point B, and the straight line is studying. No way around it, either.')
+            print('..what?')
+
+
+def epilogue():
+    while True:
+        user_input = input('What will you do now?\n')
+        if user_input == 'exit':
+            sys.exit()
+        elif user_input in valid_input['epilogue']:
+            if user_input == 'inspect report':
+                inspect_report()
+                continue
+            elif user_input == 'play again':
+                report['study points'] = 0
+                report['CLT submitted'] = 0
+                report['PRO1 submitted'] = 0
+                report['PRO1 exam'] = 'N/A'
+                report['CLT exam'] = 'N/A'
+                take_exam['possible'] = False
+                break
+        else:
+            print('..what?')
+            continue

@@ -8,17 +8,21 @@ grade on a pass or fail basis.
 
 @author: Elisa Lübbers
 """
+import sys
 
 from misc import inspect_report
 from misc import report
 from misc import game_txt
+from misc import valid_input
 
 
 def clt_exam():
     print(game_txt['clt_exam'])
     tries = 3
     while True:
-        user_input = input('Enter a codeword:\n')
+        user_input = input('Enter a codeword:\n').lower()
+        if user_input == 'exit':
+            sys.exit()
         if user_input == 'inspect report':
             inspect_report()
         else:
@@ -34,7 +38,7 @@ def clt_exam():
                 print('Wrong!')
                 report['CLT exam'] = 5.0
                 break
-    print('You finished the exam. Your grade is {}'.format(report['CLT exam']))
+    print('You finished the exam, your grade is: {}\n'.format(report['CLT exam']))
 
 
 def is_codeword(player_input: str):
