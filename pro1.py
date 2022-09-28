@@ -69,7 +69,7 @@ def pro1_exam():
     hints = 3
     current_index = 0
     # make sure the player is ready before the timer starts
-    input('Press Enter to continue.')
+    input('Press Enter to continue.\n')
     time_start = time.time()
 
     while True:
@@ -79,7 +79,7 @@ def pro1_exam():
         delta_t = time_end - time_start
         # stop the exam if the player has exceeded the time limit
         if delta_t > 120:
-            print('Oh no, you exceeded the time limit!')
+            print('Oh no, you exceeded the time limit!\n')
             break
         if user_input == 'exit':
             sys.exit()
@@ -91,25 +91,25 @@ def pro1_exam():
                 break
             elif user_input == 'help!!!':
                 if hints == 3:
-                    print('The next word is {} charakter(s) long.'.format(hint1[current_index]))
+                    print('The next word is {} charakter(s) long.\n'.format(hint1[current_index]))
                     hints -= 1
                     continue
                 elif hints == 2:
-                    print('The next word is a(n) {}'.format(hint2[current_index]))
+                    print('The next word is a(n) {}\n'.format(hint2[current_index]))
                     hints -= 1
                     continue
                 elif hints == 1:
-                    print('Here is a synonym for the next word: {}'.format(hint3[current_index]))
+                    print('Here is a synonym for the next word: {}\n'.format(hint3[current_index]))
                     hints -= 1
                     continue
                 elif hints == 0:
-                    print('You have used all hints for this word!')
+                    print('You have used all hints for this word!\n')
                     continue
             elif user_input == '#+!?':
                 break
 
         elif user_input == words_to_guess[current_index].lower():
-            print('Correct!')
+            print('Correct!\n')
             final_sentence = final_sentence.replace('–', words_to_guess[current_index], 1)
             if hints == 3:
                 score += 10
@@ -126,7 +126,7 @@ def pro1_exam():
             guesses = 3
             continue
         else:
-            print('Wrong!')
+            print('Wrong!\n')
             if guesses > 1:
                 guesses -= 1
                 continue
@@ -139,13 +139,13 @@ def pro1_exam():
                 hints = 3
                 guesses = 3
                 continue
-    print('[{} points] The whole sentence is: {}'.format(score, sent_string))
+    print('[{} points] The whole sentence is: {}\n'.format(score, sent_string))
     # if the time limit was exceeded, they automatically fail the exam. Else their grade is computed to their score.
     if delta_t > 120:
         report['PRO1 exam'] = 5.0
     else:
         report['PRO1 exam'] = convert_points(score, len(words_to_guess))
-    print('You finished the exam, your grade is: {}'.format(report['PRO1 exam']))
+    print('You finished the exam, your grade is: {}\n'.format(report['PRO1 exam']))
     # Handle all input for after the exam; distinguish between valid,
     # state-specifically invalid and wholly invalid input.
     while True:
@@ -161,7 +161,7 @@ def pro1_exam():
                 inspect_report()
                 continue
         elif user_input in valid_input['all']:
-            print('You can\'t do that here!')
+            print('You can\'t do that here!\n')
             continue
         else:
             print('..what?')

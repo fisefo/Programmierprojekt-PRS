@@ -32,12 +32,12 @@ def clt_exam():
         else:
             correct = is_codeword(user_input)
             if correct:
-                print('Correct!')
+                print('Correct!\n')
                 report['CLT exam'] = 1.0
                 break
             elif not correct and tries != 1:
                 tries -= 1
-                print('Wrong! Tries remaining: {}'.format(tries))
+                print('Wrong! Tries remaining: {}\n'.format(tries))
             else:
                 print('Wrong!')
                 report['CLT exam'] = 5.0
