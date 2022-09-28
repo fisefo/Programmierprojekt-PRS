@@ -49,13 +49,13 @@ it would be. Oh well, the only way through is doing it!
 --THE PRO1 EXAM--
 This is it, the first exam. The first of two obstacles that are still between you and the holidays. You want to pass.
 You NEED to pass. No pressure though.
-Your task is to guess the words of this sentence, given the first two.
-You have two minutes to guess all the words. Start when you're ready.
+Your task is to guess the words of this sentence, given the first two. If you need help, enter "help!!!"
+You have three hints and three guesses per word. You have two minutes to guess all the words. Start when you're ready.
 
 
 --THE CLT EXAM--
 This is it, the last step. After this, you can enjoy the holidays!
-Your task is to enter a lattice-codeword.
+Your task is to enter a codeword; every substring must have as many or more letters i as i+1. You have three tries.
 
 
 --HOLIDAYS!!--
