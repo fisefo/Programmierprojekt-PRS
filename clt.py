@@ -4,19 +4,23 @@ Created on Mon Sep 26 2022
 All functions and variables necessary for the CLT-exam part of the PRS 2022 final project.
 This script checks user input for whether the player entered a correct codeword* and computes an according
 grade on a pass or fail basis.
-* The codeword is a 'lattice word'.
+* The codeword is a 'lattice word', meaning every substring of it must have as much or more letters of the letter i as
+i+1, i.e. aabbcc, aaabbcdecbdf, ab.
 
 @author: Elisa Lübbers
 """
-import sys
 
+import sys
 from misc import inspect_report
 from misc import report
 from misc import game_txt
-from misc import valid_input
 
 
 def clt_exam():
+    """
+    Handle player input according to the CLT-exam's rules. As this is an exam-simulation, only state-specific
+    valid input and correct answers are handled as valid, everything else will be treated as wrong answers.
+    """
     print(game_txt['clt_exam'])
     tries = 3
     while True:
@@ -43,9 +47,10 @@ def clt_exam():
 
 def is_codeword(player_input: str):
     """
-    Check whether the submitted codeword is an acceptable lattice-word.
+    Check whether the submitted codeword is an acceptable lattice-word, using recursion.
+
     :param player_input: a codeword the player submits.
-    :return: bool: true if the codeword is accepted, otherwise false.
+    :return: true if the codeword is accepted, otherwise false.
     """
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     if player_input == 'a':

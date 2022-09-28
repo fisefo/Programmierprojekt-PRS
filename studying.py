@@ -1,12 +1,11 @@
 """
 Created on Tue Aug 16 2022
 
-This file contains the 'studying'- and 'assignments'-part of
-the game and all related functions.
+This file contains all functions for the 'studying'- and 'assignments'-parts of
+the game. These functions handle the input for this stage of the game and update the player's report if necessary.
 
 @author: Elisa Lübbers
 """
-
 
 import sys
 from misc import report
@@ -18,8 +17,14 @@ import random
 
 
 def study():
-    """Check user input for valid commands and execute the according functions in a loop while the player is
-    studying. """
+    """
+    Handle all user input and execute the according functions while the player is
+    studying; this includes accumulating study points and submitting assignments.
+
+    All valid commands will lead to the corresponding action, i.e. updating the player's report or transitioning
+    to the first exam. Commands that are valid to a different part of the game raise a different in-game error-message
+    to the player than wholly invalid commands.
+    """
     print(game_txt['study'])
     while True:
         if take_exam['possible']:
@@ -80,10 +85,15 @@ def ask_tutor():
         print(game_txt['tutor_w'])
     else:
         print(game_txt['tutor_l'])
-# fixme: better docstrings!
+
 
 def submit_clt():
-    """Update report and enter assignment-loop if submission-conditions are met. Else throw specific in-game error."""
+    """
+    Update report and enter assignment-loop if submission-conditions are met. Else throw specific in-game error.
+
+    The in-game errors are specific to the problem at hand, i.e. not enough study points. Should the player qualify
+    for taking the first exam, they are notified automatically.
+    """
     if report['CLT submitted'] < 3 and report['CLT submitted'] <= report['PRO1 submitted'] and report[
             'study points'] >= 4:
         report['CLT submitted'] += 1
@@ -101,7 +111,12 @@ def submit_clt():
 
 
 def submit_pro1():
-    """Update report and enter assignment-loop if submission-conditions are met. Else throw specific in-game error."""
+    """
+    Update report and enter assignment-loop if submission-conditions are met. Else throw specific in-game error.
+
+    The in-game errors are specific to the problem at hand, i.e. not enough study points. Should the player qualify
+    for taking the first exam, they are notified automatically.
+    """
     if report['PRO1 submitted'] < 4 and report['PRO1 submitted'] <= report['CLT submitted'] and report[
             'study points'] >= 3:
         report['PRO1 submitted'] += 1
@@ -119,7 +134,14 @@ def submit_pro1():
 
 
 def assignment_input():
-    """Handle the valid input for assignments in a loop and call functions accordingly."""
+    """
+    Handle all user input for assignments and call functions accordingly.
+
+    Valid input after submitting an assignment differs from that while studying, this function acts much the same way
+    as study(). All valid input will call the corresponding actions and invalid input is distinguished in wholly
+    invalid and valid in a different state. This function will lead to the first exam if conditions are met and the
+    player wants to proceed.
+    """
     while True:
         user_input = input('\n').lower()
         if user_input == 'exit':

@@ -8,6 +8,7 @@ representing their success in guessing the words; they also have a two-minute ti
 
 @author: Elisa Lübbers
 """
+
 import random
 import re
 import sys
@@ -30,7 +31,11 @@ def pro1_exam():
     Part one: Fetch and prepare a sentence from Alice in Wonderland for the guessing game;
         fetch and compute all info necessary for the hints and the score.
 
-    Part two: Handle player input according to the games' rules.
+    Part two: Handle player input according to the Pro1 exam's rules. As this is an exam-simulation, only state-specific
+    valid input and correct answers are handled as valid, everything else will be treated as wrong answers.
+
+    Part three: Handle all input for after the exam, distinguish between valid, state-specifically invalid and wholly
+    invalid input.
     """
     print(game_txt['pro1_exam'])
     # download the Alice in Wonderland text from the nltk corpus
@@ -50,17 +55,20 @@ def pro1_exam():
         final_sentence = final_sentence.replace('–', only_words_list[i], 1)
 
     # compute the hints for the player
+
     words_to_guess = only_words_list[2:]
+    # the length of each word to be guessed
     hint1 = [len(x) for x in words_to_guess]
-
+    # the POS-tag from the nltk library for every word to be guessed; tagger: averaged_perceptron_tagger
     hint2 = [x[1] for x in nltk.pos_tag(words_to_guess)]
-
+    # a synonym for every word to be guessed
     hint3 = [get_synonym(x) for x in words_to_guess]
 
     score = 0
     guesses = 3
     hints = 3
     current_index = 0
+    # make sure the player is ready before the timer starts
     input('Press Enter to continue.')
     time_start = time.time()
 
@@ -69,6 +77,7 @@ def pro1_exam():
                            .format(score, final_sentence)).lower()
         time_end = time.time()
         delta_t = time_end - time_start
+        # stop the exam if the player has exceeded the time limit
         if delta_t > 120:
             print('Oh no, you exceeded the time limit!')
             break
@@ -131,11 +140,14 @@ def pro1_exam():
                 guesses = 3
                 continue
     print('[{} points] The whole sentence is: {}'.format(score, sent_string))
+    # if the time limit was exceeded, they automatically fail the exam. Else their grade is computed to their score.
     if delta_t > 120:
         report['PRO1 exam'] = 5.0
     else:
         report['PRO1 exam'] = convert_points(score, len(words_to_guess))
     print('You finished the exam, your grade is: {}'.format(report['PRO1 exam']))
+    # Handle all input for after the exam; distinguish between valid,
+    # state-specifically invalid and wholly invalid input.
     while True:
         if report['PRO1 exam'] == 5.0:
             break
@@ -165,15 +177,8 @@ def get_synonym(word: str):
     make sure that the found synonym is not the same as the given word, if so take the next word in the synset.
     Replace underscores with white space if necessary.
 
-    Parameters
-    ---------
-     word: str
-        the word to fetch a synonym of
-
-    Return
-    ------
-    synonym: str
-        the synonym
+    :param word: the word to fetch the synonym of
+    :return: the synonym for the word
     """
     word = word.lower()
     try:

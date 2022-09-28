@@ -6,9 +6,10 @@ that are not specific to any sole part of the game, as well as prologue and epil
 
 @author: Elisa Lübbers
 """
+
 import sys
 
-
+# all valid input for every part of the game
 valid_input = {
     'all': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report',
             'take pro1 exam', 'study', 'go on holidays', 'play again'],
@@ -18,6 +19,7 @@ valid_input = {
     'pro1 exam': ['take clt exam', 'inspect report', '#+!?', 'help!!!'],
     'epilogue': ['play again', 'inspect report', 'exit']
 }
+# the report of the player, to be updated in different parts of the game
 report = {
     'study points': 0,
     'CLT submitted': 0,
@@ -25,6 +27,7 @@ report = {
     'PRO1 exam': 'N/A',
     'CLT exam': 'N/A'
 }
+# save whether the player can take the exam
 take_exam = {
     'possible': False
 }
@@ -40,7 +43,12 @@ def inspect_report():
 
 
 def text_out(scene):
-    """Take a list of strings and turn it into a single string."""
+    """
+    Take a list of strings and turn it into a single string for further use.
+
+    :param scene: a list of strings
+    :return: a single string
+    """
     output = ''
     for i in scene:
         output += i
@@ -48,7 +56,12 @@ def text_out(scene):
 
 
 with open('texts.txt', 'r') as f:
-    """Read the scene descriptions from the texts.txt file and store them as single strings in a dictionary."""
+    """
+    Read the scene descriptions from the texts.txt file and store them as single strings in a dictionary.
+    
+    :param texts.txt: the text file with all scene descriptions
+    :return: a dictionary will all scene descriptions seperated by name
+    """
     raw = f.readlines()
     game_txt = {
         'prologue': text_out(raw[0:6]),
@@ -69,7 +82,7 @@ with open('texts.txt', 'r') as f:
 
 
 def prologue():
-    """Show the Prologue to the game and make sure the player proceeds to the study-state"""
+    """Show the prologue of the game and make sure the player proceeds to the study-state"""
     print(game_txt['prologue'])
     while True:
         user_input = input('Proceed to -> "study"ing?\n').lower()
@@ -87,6 +100,11 @@ def prologue():
 
 
 def epilogue():
+    """
+    Handle all input for the final state of the game and restart the game-loop if commanded.
+    Valid input will lead to the corresponding actions, invalid input is distinguished into wholly invalid and
+    valid in a different state.
+    """
     while True:
         user_input = input('What will you do now?\n')
         if user_input == 'exit':
@@ -95,6 +113,7 @@ def epilogue():
             if user_input == 'inspect report':
                 inspect_report()
                 continue
+            # flush the player's stats if they want to play again
             elif user_input == 'play again':
                 report['study points'] = 0
                 report['CLT submitted'] = 0
@@ -103,6 +122,8 @@ def epilogue():
                 report['CLT exam'] = 'N/A'
                 take_exam['possible'] = False
                 break
+        elif user_input in valid_input['all']:
+            print('You can\'t do that now!')
         else:
             print('..what?')
             continue
