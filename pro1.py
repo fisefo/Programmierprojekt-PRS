@@ -87,7 +87,7 @@ def pro1_exam():
             if user_input == 'inspect report':
                 inspect_report()
                 continue
-            elif user_input == '#+!?':
+            elif user_input == ':#+!?':
                 break
             elif user_input == 'help!!!':
                 if hints == 3:
@@ -105,8 +105,6 @@ def pro1_exam():
                 elif hints == 0:
                     print('You have used all hints for this word!\n')
                     continue
-            elif user_input == '#+!?':
-                break
 
         elif user_input == words_to_guess[current_index].lower():
             print('Correct!\n')

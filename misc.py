@@ -16,7 +16,7 @@ valid_input = {
     'starting out': ['study', 'inspect report', 'go on holidays'],
     'studying': ['read book', 'watch video', 'ask tutor', 'submit clt', 'submit pro1', 'inspect report'],
     'assignments': ['study', 'submit clt', 'submit pro1', 'take pro1 exam', 'inspect report'],
-    'pro1 exam': ['take clt exam', 'inspect report', '#+!?', 'help!!!'],
+    'pro1 exam': ['take clt exam', 'inspect report', ':#+!?', 'help!!!'],
     'epilogue': ['play again', 'inspect report', 'exit']
 }
 # the report of the player, to be updated in different parts of the game
