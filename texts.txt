@@ -55,8 +55,8 @@ You have three hints and three guesses per word. You have two minutes to guess a
 
 --THE CLT EXAM--
 This is it, the last step. After this, you can enjoy the holidays!
-Your task is to enter a codeword; every substring must have as many or more letters i as i+1. You have three tries.
-
+Your task is to enter a codeword; every substring must have as many or more letters i as i+1.
+The codeword must begin with an "a". You have three tries.
 
 --HOLIDAYS!!--
 Thank god, you did it!

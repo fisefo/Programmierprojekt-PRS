@@ -73,7 +73,7 @@ with open('texts.txt', 'r') as f:
         'tutor_l': text_out(raw[30:34]),
         'exam_warning': text_out(raw[36:41]),
         'pro1_exam': text_out(raw[48:53]),
-        'clt_exam': text_out(raw[55:58]),
+        'clt_exam': text_out(raw[55:59]),
         'epilogue_w': text_out(raw[60:68]),
         'epilogue_l': text_out(raw[70:79]),
         'pro1_exercise': text_out(raw[81:84]),

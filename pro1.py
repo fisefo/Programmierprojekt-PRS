@@ -49,10 +49,10 @@ def pro1_exam():
     # extract only the words from the string into a list
     only_words_list: list[Any] = re.findall(r'\w+', sent_string)
     # sub every word with '-'
-    final_sentence: str = re.sub(r'\w+', '–', sent_string)
+    final_sentence: str = re.sub(r'\w+', '_', sent_string)
     # 'uncover' the first two words of the sentence to finalize it
     for i in range(2):
-        final_sentence = final_sentence.replace('–', only_words_list[i], 1)
+        final_sentence = final_sentence.replace('_', only_words_list[i], 1)
 
     # compute the hints for the player
 
@@ -108,7 +108,7 @@ def pro1_exam():
 
         elif user_input == words_to_guess[current_index].lower():
             print('Correct!\n')
-            final_sentence = final_sentence.replace('–', words_to_guess[current_index], 1)
+            final_sentence = final_sentence.replace('_', words_to_guess[current_index], 1)
             if hints == 3:
                 score += 10
             elif hints == 2:
@@ -129,7 +129,7 @@ def pro1_exam():
                 guesses -= 1
                 continue
             else:
-                final_sentence = final_sentence.replace('–', words_to_guess[current_index], 1)
+                final_sentence = final_sentence.replace('_', words_to_guess[current_index], 1)
                 score -= 5
                 if words_to_guess[current_index] == words_to_guess[-1]:
                     break

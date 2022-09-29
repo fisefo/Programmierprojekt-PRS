@@ -5,7 +5,7 @@ All functions and variables necessary for the CLT-exam part of the PRS 2022 fina
 This script checks user input for whether the player entered a correct codeword* and computes an according
 grade on a pass or fail basis.
 * The codeword is a 'lattice word', meaning every substring of it must have as much or more letters of the letter i as
-i+1, i.e. aabbcc, aaabbcdecbdf, ab.
+i+1, i.e. aabbcc, aaabbcdecbdf, ab; the word must begin with an "a".
 
 @author: Elisa Lübbers
 """
