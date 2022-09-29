@@ -17,7 +17,7 @@ The player starts out the semester with an empty report card. They must proceed 
 --**Studying**--
 The player  must acquire study points and use them to submit assignments. In total, they must submit three CLT-assignments (each costing four study points) and four PRO1-assignments (each costing three study points).
 *Valid inputs at this stage:*
-` read book`, `watch video`, `ast tutor`, 
+` read book`, `watch video`, `ask tutor`, 
 `submit clt`, `submit pro1`
 `inspect report`, `exit`
 
@@ -105,5 +105,5 @@ To run the program, simply unpack the .zip file and open `main.py` in your termi
 - Go to File>Open... and navigate to `main.py`.
 ## Copyright
 All files belonging to this project were created for the final project of the University of Potsdam's [LIN-BS-042] course and were written by and belong to Elisa Lübbers. 
-No-one currently or formerly matriculated in this course may use, copy, or distribute this code or any of the files associated with it.
+No-one currently or formerly enrolled in this course may use, copy, or distribute this code or any of the files associated with it.
 > Written with [StackEdit](https://stackedit.io/).
