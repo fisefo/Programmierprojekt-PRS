@@ -17,7 +17,7 @@ The player starts out the semester with an empty report card. They must proceed 
 --**Studying**--
 The player  must acquire study points and use them to submit assignments. In total, they must submit three CLT-assignments (each costing four study points) and four PRO1-assignments (each costing three study points).
 *Valid inputs at this stage:*
-` read book`, `watch video`, `ast tutor`, 
+` read book`, `watch video`, `ask tutor`, 
 `submit clt`, `submit pro1`
 `inspect report`, `exit`
 
