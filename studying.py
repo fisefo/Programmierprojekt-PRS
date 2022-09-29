@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Created on Tue Aug 16 2022
 
@@ -63,13 +65,13 @@ def study():
 
 
 def read_book():
-    """Increment studypoints by 1 and print feedback."""
+    """Increment study points by 1 and print feedback."""
     report['study points'] += 1
     print(game_txt['book'])
 
 
 def watch_video():
-    """Subtract 1 from studypoints with a .6 chance or add 2 with a .4 chance, print feedback according to outcome."""
+    """Subtract 1 from study points with a .6 chance or add 2 with a .4 chance, print feedback according to outcome."""
     if random.randint(1, 100) <= 60:
         report['study points'] -= 1
         print(game_txt['video_l'])
@@ -79,7 +81,7 @@ def watch_video():
 
 
 def ask_tutor():
-    """Add 3 to studypoints with a .7 chance or do nothing with a .3 chance, print feedback according to outcome."""
+    """Add 3 to study points with a .7 chance or do nothing with a .3 chance, print feedback according to outcome."""
     if random.randint(1, 100) <= 70:
         report['study points'] += 3
         print(game_txt['tutor_w'])
