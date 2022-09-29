@@ -105,5 +105,5 @@ To run the program, simply unpack the .zip file and open `main.py` in your termi
 - Go to File>Open... and navigate to `main.py`.
 ## Copyright
 All files belonging to this project were created for the final project of the University of Potsdam's [LIN-BS-042] course and were written by and belong to Elisa Lübbers. 
-No-one currently or formerly matriculated in this course may use, copy, or distribute this code or any of the files associated with it.
+No-one currently or formerly enrolled in this course may use, copy, or distribute this code or any of the files associated with it.
 > Written with [StackEdit](https://stackedit.io/).
